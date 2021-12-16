@@ -25,7 +25,7 @@ F d A f d A  F d A f d A  E c A e c A  E c A e c A
 E c G e c G  D B G d B G  G e c g e c  F c A f c A
 E c G e c G  F B G d B G  E c G e c G  E c G e c G
 D B G d B G  D B G d B G  G e c g e c  F d A f d A
-E c G e c G  F B G d B G  c1.
+E c G e c G  F B G d B G  C E G c G E  c2.
 """
 
 bass = """ tinynotation: 12/8
@@ -35,7 +35,7 @@ BB4. GG BB GG  C GG C GG
  BB  GG BB GG  C GG C~ C
 AA2.~ AA EE~ EE DD~ DD AA~ AA
  GG  FF EE FF GG GG  CC4. EE GG C
-GG2. FF EE FF GG GGG CC8 EE GG C GG EE CC2.
+G2. F E F G GG C1.
 """
 
 pygame.midi.init()
@@ -47,7 +47,7 @@ p.insert(music21.instrument.Lute())
 b.insert(music21.instrument.StringInstrument())
 
 s = music21.stream.Score([c, p, b])
-s.show()
+# s.show()
 sp = music21.midi.realtime.StreamPlayer(s)
 sp.play()
 del sp
