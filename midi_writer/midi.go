@@ -121,14 +121,13 @@ func min[T byte | uint](a T, b ...T) T {
 }
 
 func generate_track(track []Note) (res MidiData) {
-
 	timefrac_set := []byte{0xff, 0x58, 0x04}
 	res.push_delta(0)
 	res.push(timefrac_set...)
 	res.push(Numerator,
 		byte(log2(Denominator)),
 		96/byte(min(Denominator, 32)), // clock/beat
-		32/4)                          // 32nd/4ter
+		32/4)                          // 32nd/quarter
 
 	tempo_set := []byte{0xff, 0x51, 0x03}
 	res.push_delta(0)
@@ -289,7 +288,7 @@ const (
 		"l8 < f > f f l8 < f > f f " +
 		"l16 < b- > f b- > d < b- f l16 < b- > f b- > d < b- f " +
 		"l8 < b- > f f l8 < f > f f " +
-		"l8 < b- f d b- "
+		"l8 < b- f d < b-^ "
 )
 
 func set_flags() {
